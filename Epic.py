@@ -18,6 +18,9 @@ bot = Client(
     bot_token = Config.BOT_TOKEN,
     api_id = Config.API_ID,
     api_hash = Config.API_HASH
+    ad = Config.BOT_NAME
+    sahib_id = Config.OWNER_ID
+    tag = Config.
 )
 
 ## Extra Fns -------------------------------

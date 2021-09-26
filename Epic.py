@@ -18,8 +18,10 @@ bot = Client(
     bot_token = Config.BOT_TOKEN,
     api_id = Config.API_ID,
     api_hash = Config.API_HASH
+    ad = Config.BOT_ADI
+    sahib_id = Config.OWNER_ID
+    tag = Config.BOT_NAME
 )
-
 ## Extra Fns -------------------------------
 
 # Convert hh:mm:ss to seconds
@@ -31,14 +33,14 @@ def time_to_seconds(time):
 ## Commands --------------------------------
 @bot.on_message(filters.command(['start']))
 def start(client, message):
-    EpicProjects = f'👋 Salam @{message.from_user.username}\n\nMən musiqi yükləmə botuyam[🎶](https://telegra.ph/file/fe4c4a590e4fbeee6a355.mp4)\n\nDinləmək istədiyin musiqinin adını mənə göndər... 😍🥰🤗\n\nAxtarış /s Musiqi adı\n\nNümunə: `/s Okaber - Axtarma`'
+    EpicProjects = f'👋 Salam @{message.from_user.username}\n\nMən musiqi yükləmə botuyam[🎶](https://telegra.ph/file/fe4c4a590e4fbeee6a355.mp4)\n\nMənim adım {BOT_ADI}dır.\n\nDinləmək istədiyin musiqinin adını mənə göndər... 😍🥰🤗\n\nAxtarış /s Musiqi adı\n\nNümunə: `/s Okaber - Axtarma`'
     message.reply_text(
         text=TamilBots, 
         quote=False,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('𝐒𝐔𝐏𝐏𝐎𝐑𝐓 👬', url='https://t.me/EpicProjects'),
+                    InlineKeyboardButton('< Sahib >', url='https://t.me/'),
                     InlineKeyboardButton('Öz Botunu Yarat 👩‍💻', url='t.me/epicsup')
                 ]
             ]
@@ -95,8 +97,8 @@ def a(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'🎧 Başlıq : [{title[:35]}]({link})\n⏳ Müddət : `{duration}`\n🎬 Mənbə : `Youtube`\n👁‍🗨 Baxış Sayı : `{views}`\n\n💌 𝐁𝐲 : @EpicProjects'
-        secmul, dur, dur_arr = 1, 0, duration.split(':')
+        rep = f'🎧 Başlıq : [{title[:35]}]({link})\n⏳ Müddət : `{duration}`\n🎬 Mənbə : `Youtube`\n👁‍🗨 Baxış Sayı : `{views}`\n\n💌 𝐁𝐲 : @{BOT_NAME}'
+        secmul, dur, dur_arr = 1, 0, duration.split(':'
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
